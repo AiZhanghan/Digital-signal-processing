@@ -24,16 +24,21 @@ FIR1 = fir2(N_freq_sample_fir, f, a);
 out1 = filter(FIR1, 1, y);
 
 figure;
-subplot(2, 2, 1);
+subplot(3, 2, 1);
 plot(0: N - 1, y, '-');
 title('时域-滤波前信号');
-subplot(2, 2, 2);
+subplot(3, 2, 2);
 plot(0: N - 1, out1, '-');
 title('时域-滤波后信号');
-subplot(2, 2, 3);
+subplot(3, 2, 3);
 plot(0: N - 1, abs(fft(y)));
-title('频域-滤波前信号');
-subplot(2, 2, 4);
+title('频域-滤波前信号-幅度');
+subplot(3, 2, 4);
 plot(0: N - 1, abs(fft(out1)));
-title('频域-滤波后信号');
-
+title('频域-滤波后信号-幅度');
+subplot(3, 2, 5);
+plot(0: N - 1, angle(fft(y)));
+title('频域-滤波前信号-相位');
+subplot(3, 2, 6);
+plot(0: N - 1, angle(fft(out1)));
+title('频域-滤波后信号-相位');
